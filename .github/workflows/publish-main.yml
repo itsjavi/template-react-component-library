@@ -40,7 +40,7 @@ jobs:
           git branch -u origin/main main
 
       - name: "Increase build versions"
-        run: pnpm standard-version --tag-prefix --commit-all
+        run: pnpm release --tag-prefix --commit-all
 
       ## Uncomment when we have a package to publish
       # - name: "Publish package"
