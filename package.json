@@ -34,6 +34,15 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
+    "@chromatic-com/storybook": "^1.8.0",
+    "@storybook/addon-essentials": "^8.2.9",
+    "@storybook/addon-interactions": "^8.2.9",
+    "@storybook/addon-links": "^8.2.9",
+    "@storybook/addon-onboarding": "^8.2.9",
+    "@storybook/blocks": "^8.2.9",
+    "@storybook/react": "^8.2.9",
+    "@storybook/react-vite": "^8.2.9",
+    "@storybook/test": "^8.2.9",
     "@types/node": "^22.5.1",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
@@ -41,6 +50,7 @@
     "globals": "^15.9.0",
     "publint": "^0.2.10",
     "sort-package-json": "^2.10.1",
+    "storybook": "^8.2.9",
     "typescript": "^5.5.4",
     "vite": "^5.4.2",
     "vite-plugin-dts": "^4.0.3"
