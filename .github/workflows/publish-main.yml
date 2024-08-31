@@ -26,20 +26,11 @@ jobs:
         # with:
         #   PACKAGE_REGISTRY_TOKEN: ${{ secrets.PACKAGE_REGISTRY_TOKEN }}
 
+      - name: "Check code quality"
+        uses: ./.github/actions/check-code-quality
+
       # - name: "Authenticate with GitHub package registry (publish)"
       #   run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.PACKAGE_REGISTRY_TOKEN }}" > ~/.npmrc
-
-      - name: "Check code style"
-        run: pnpm lint
-
-      - name: "Run tests"
-        run: pnpm test:ci
-
-      - name: "Build project"
-        run: pnpm build
-
-      - name: "Check publish config"
-        run: pnpm publint
 
       - name: "Prepare git"
         run: |
@@ -55,11 +46,12 @@ jobs:
           git add .
           git push --follow-tags
 
-      - name: "Publish package"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_REGISTRY_TOKEN }}
-        run: pnpm publish --no-git-checks
+      ## Uncomment when we have a package to publish
+      # - name: "Publish package"
+      #   env:
+      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_REGISTRY_TOKEN }}
+      #   run: pnpm publish --no-git-checks
 
   publishStorybook:
     name: "Publish Storybook to GitHub Pages"

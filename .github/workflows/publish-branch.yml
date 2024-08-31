@@ -31,11 +31,8 @@ jobs:
         # with:
         #   PACKAGE_REGISTRY_TOKEN: ${{ secrets.PACKAGE_REGISTRY_TOKEN }}
 
-      - name: "Build project"
-        run: pnpm build 
-
-      - name: "Check publish config"
-        run: pnpm publint
+      - name: "Check code quality"
+        uses: ./.github/actions/check-code-quality
 
       # - name: "Authenticate with GitHub package registry (publish)"
       #   run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.PACKAGE_REGISTRY_TOKEN }}" > ~/.npmrc

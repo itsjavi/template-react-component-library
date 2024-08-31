@@ -21,17 +21,5 @@ jobs:
         # with:
         #   PACKAGE_REGISTRY_TOKEN: ${{ secrets.PACKAGE_REGISTRY_TOKEN }}
 
-      - name: "Check code style"
-        run: pnpm lint
-
-      - name: "Run tests"
-        run: pnpm test:ci
-
-      - name: "Build project"
-        run: pnpm build
-
-      - name: "Check publish config"
-        run: pnpm publint
-
-      - name: 'Build storybook'
-        run: pnpm build-storybook
+      - name: "Check code quality"
+        uses: ./.github/actions/check-code-quality
