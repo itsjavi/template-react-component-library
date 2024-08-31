@@ -21,7 +21,9 @@
     "build": "tsc -b && vite build",
     "build:storybook": "storybook build",
     "dev": "pnpm storybook",
-    "lint": "publint",
+    "format": "pnpm lint:fix",
+    "lint": "publint && biome check .",
+    "lint:fix": "sort-package-json && biome check --write .",
     "prepare": "sort-package-json",
     "prepublishOnly": "pnpm run lint && pnpm run build",
     "storybook": "storybook dev -p 6006"
@@ -31,6 +33,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.8.3",
     "@types/node": "^22.5.1",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
