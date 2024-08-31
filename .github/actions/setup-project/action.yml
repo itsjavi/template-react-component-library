@@ -24,7 +24,7 @@ runs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ env.NODE_VERSION }}
-        # registry-url: https://npm.pkg.github.com
+        # registry-url: https://npm.pkg.github.com # needed for private packages
         cache: "pnpm"
         cache-dependency-path: "./pnpm-lock.yaml"
 
@@ -43,3 +43,4 @@ runs:
       run: pnpm install --frozen-lockfile
       # env:
       #   NODE_AUTH_TOKEN: ${{ inputs.PACKAGE_REGISTRY_TOKEN }}
+      #   NPM_CONFIG_TOKEN: ${{ inputs.PACKAGE_REGISTRY_TOKEN }}

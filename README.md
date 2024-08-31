@@ -5,6 +5,12 @@ Components Library template with Vite, React and Storybook.
 To publish your package, uncomment the necessary steps in the different .github/workflows/publish-*.yml files.
 It's also recommended to read this guide: https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry
 
+The `PACKAGE_REGISTRY_TOKEN` secret is only needed when you need to install other private packages from your GitHub Packages registry,
+which `GITHUB_TOKEN` does not provide access to.
+
+You'll also need to update `.npmrc`, and remove `publishConfig` from `package.json` 
+if you are publishing to NPM as a public package.
+
 ## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

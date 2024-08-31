@@ -21,6 +21,7 @@ jobs:
         run: pnpm run upgrade-deps
         # env:
         #   NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_REGISTRY_TOKEN }}
+        #   NPM_CONFIG_TOKEN: ${{ secrets.PACKAGE_REGISTRY_TOKEN }}
 
       - name: "Check and fix code style"
         run: pnpm lint:fix

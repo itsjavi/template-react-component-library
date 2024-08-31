@@ -1,8 +1,9 @@
 name: Release new stable version (main)
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
+  # push:
+  #   branches: [main] # TODO: uncomment this
 
 concurrency: release-new-version
 
@@ -41,17 +42,18 @@ jobs:
       - name: "Increase build versions"
         run: pnpm standard-version --tag-prefix --commit-all
 
-      - name: "Push new version to git"
-        run: |
-          git add .
-          git push --follow-tags
-
       ## Uncomment when we have a package to publish
       # - name: "Publish package"
       #   env:
       #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_REGISTRY_TOKEN }}
+      #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     NPM_CONFIG_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #   run: pnpm publish --no-git-checks
+
+      - name: "Push new version to git"
+        run: |
+          git add .
+          git push --follow-tags
 
   publishStorybook:
     name: "Publish Storybook to GitHub Pages"
