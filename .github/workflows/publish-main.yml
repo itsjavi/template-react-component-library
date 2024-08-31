@@ -33,10 +33,13 @@ jobs:
         run: pnpm lint
 
       - name: "Run tests"
-        run: pnpm test:ci:coverage
+        run: pnpm test:ci
 
       - name: "Build project"
         run: pnpm build
+
+      - name: "Check publish config"
+        run: pnpm publint
 
       - name: "Prepare git"
         run: |
