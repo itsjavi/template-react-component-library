@@ -2,8 +2,8 @@ name: Release new stable version (main)
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches: [main] # TODO: uncomment this
+  push:
+    branches: [main]
 
 concurrency: release-new-version
 
