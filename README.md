@@ -1,6 +1,9 @@
 # template-react-component-library
 
-Components Library template with Vite, React and Storybook
+Components Library template with Vite, React and Storybook.
+
+To publish your package, uncomment the necessary steps in the different .github/workflows/publish-*.yml files.
+It's also recommended to read this guide: https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry
 
 ## React + TypeScript + Vite
 
