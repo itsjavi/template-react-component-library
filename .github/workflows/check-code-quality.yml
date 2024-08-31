@@ -1,0 +1,34 @@
+name: "Check code quality"
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: checkCodeQuality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checkCodeQuality:
+    name: "Check code quality"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "Setup Project"
+        uses: ./.github/actions/setup-project
+        # with:
+        #   PACKAGE_REGISTRY_TOKEN: ${{ secrets.PACKAGE_REGISTRY_TOKEN }}
+
+      - name: "Check code style"
+        run: pnpm lint
+
+      - name: "Run tests"
+        run: pnpm test:ci
+
+      - name: "Build project"
+        run: pnpm build
+
+      - name: 'Build storybook'
+        run: pnpm build-storybook
